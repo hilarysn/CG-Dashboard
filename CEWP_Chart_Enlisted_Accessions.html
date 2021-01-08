@@ -1,0 +1,50 @@
+﻿<script language="javascript" type="text/javascript">
+    jQuery(document).ready(function () {
+        SP.SOD.executeOrDelayUntilScriptLoaded(function () {
+            var SLASH = "/";
+            var tp1 = new String(window.location.protocol);
+            var tp2 = new String(window.location.host);
+            var tp3 = L_Menu_BaseUrl;
+            var site = tp1 + SLASH + SLASH + tp2 + tp3;
+            SP.SOD.registerSod('CEWP_Chart_Enlisted_Accessions.js', site + "/SiteAssets/js/CEWP_Chart_Enlisted_Accessions.js");
+            EnsureScriptFunc("CEWP_Chart_Enlisted_Accessions.js", null, function () {
+                CG.DASHBOARD.CHARTS.ACCESSSIONS().Init(site, 'M');
+            });
+        }, "sp.js");
+    });
+</script>
+<div class="container-fluid">
+	<div class="row d-flex justify-content-end">
+		<div class="col-3 d-flex justify-content-end">
+			<div>
+				<label for="inputFY">FY </label><select id="inputFY">
+				<option selected>Choose...</option>
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="container">
+    <table style="height:100%;width:100%;">
+        <tr><td align='center'><img src='/_layouts/images/gears_an.gif' /></td></tr>
+        <tr><td align='center'><div style='margin-top: 10px; font-size: 16px;'>Getting Data...Please wait.</div></td></tr>
+    </table>
+</div>
+<div class="container-fluid">
+	<div class="row row d-flex justify-content-center">
+		<div class="col-3 text-center">YTD Accessions</div>
+		<div class="col-3 text-center">YTD Missions</div>
+		<div class="col-3 text-center">Over/Under YTD</div>
+	</div>
+	<div class="row d-flex justify-content-center">
+		<div id="ytdAccessions" class="col-3 text-center">
+			
+		</div>
+		<div id="ytdMission" class="col-3 text-center">
+
+		</div>
+		<div id="ytdOverUnder" class="col-3 text-center">
+
+		</div>
+	</div>
+</div><head><title>CEWP_Chart_Enlisted_Accessions</title></head>

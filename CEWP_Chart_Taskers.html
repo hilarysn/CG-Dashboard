@@ -1,0 +1,159 @@
+﻿<script src="https://hq.tradoc.army.mil/sites/cpg/SiteAssets/highcharts/highcharts.js"></script>
+<script src="https://hq.tradoc.army.mil/sites/cpg/SiteAssets/highcharts/exporting.js"></script>
+<script src="https://hq.tradoc.army.mil/sites/cpg/SiteAssets/highcharts/export-data.js"></script>
+<script src="https://hq.tradoc.army.mil/sites/cpg/SiteAssets/highcharts/highcharts.css"></script>
+<script src= "https://hq.tradoc.army.mil/sites/cpg/SiteAssets/js/moment.min.js"></script>
+<link rel="stylesheet" href="https://hq.tradoc.army.mil/sites/cpg/SiteAssets/highcharts/highcharts.css"/>
+<link rel="stylesheet" href="https://hq.tradoc.army.mil/sites/cpg/SiteAssets/css/bootstrap.min.css" />
+
+<script language="javascript" type="text/javascript">
+    jQuery(document).ready(function () {		
+        SP.SOD.executeOrDelayUntilScriptLoaded(function () {
+            var SLASH = "/";
+            var tp1 = new String(window.location.protocol);
+            var tp2 = new String(window.location.host);
+            var tp3 = L_Menu_BaseUrl;
+            var site = tp1 + SLASH + SLASH + tp2 + tp3;
+			$('#taskertable').modal('hide'); 
+            SP.SOD.registerSod('CEWP_Chart_Taskers.js', site + "/SiteAssets/js/CEWP_Chart_Taskers.js");
+            EnsureScriptFunc("CEWP_Chart_Taskers.js", null, function () {
+                CG.DASHBOARD.CHARTS.TASKERS().Init(site, 'M');
+            });
+        }, "sp.js");
+    });
+</script>
+<div id="containerpie" class="highcharts-container">
+	<table style="height:100%; width:100%;">
+		<tr><td align='center'><img src='/_layouts/images/gears_an.gif' /></td></tr>
+		<tr><td align='center'><div style='margin-top: 10px; font-size: 16px;'>Getting Data...Please wait.</div></td></tr>
+	</table>
+</div>
+<!--<div class="container-fluid">
+	<b-modal id="taskertable" centered size="lg" title="Tasker Data" ok-only ok-variant="info" ok-title="Ok" @ok="yourOkFn">
+		<div class="container-fluid">
+		<table id='tblNoSDate' cellspacing='0' cellpadding='0' class='table table-bordered table-hover table-taskers'>
+			<thead>
+			<tr><th class="control">Control</th><th class="suspense">Suspense</th><th>Title</th><th class="tasklead">Leads</th></tr>
+			</thead>
+			<tbody>
+			<tr id='nosdate'>
+			</tr>
+			</tbody>
+		</table>
+		<table id='tblOverdue' cellspacing='0' cellpadding='0' class='table table-bordered table-hover table-taskers'>
+			<thead>
+			<tr><th class="control">Control</th><th class="suspense">Suspense</th><th>Title</th><th class="tasklead">Leads</th></tr>
+			</thead>
+			<tbody>
+			<tr id='overdue'>
+			</tr>
+			</tbody>
+		</table>
+		<table id='tblDueToday' cellspacing='0' cellpadding='0' class='table table-bordered table-hover table-taskers'>
+			<thead>
+			<tr><th class="control">Control</th><th class="suspense">Suspense</th><th>Title</th><th class="tasklead">Leads</th></tr>
+			</thead>
+			<tbody>
+			<tr id='duetoday'>
+			</tr>
+			</tbody>
+		</table>
+		<table id='tblThirty' cellspacing='0' cellpadding='0' class='table table-bordered table-hover table-taskers'>
+			<thead>
+			<tr><th class="control">Control</th><th class="suspense">Suspense</th><th>Title</th><th class="tasklead">Leads</th></tr>
+			</thead>
+			<tbody>
+			<tr id='thirty'>
+			</tr>
+			</tbody>
+		</table>
+		<table id='tblSixty' cellspacing='0' cellpadding='0' class='table table-bordered table-hover table-taskers'>
+			<thead>
+			<tr><th class="control">Control</th><th class="suspense">Suspense</th><th>Title</th><th class="tasklead">Leads</th></tr>
+			</thead>
+			<tbody>
+			<tr id='sixty'>
+			</tr>
+			</tbody>
+		</table>
+		<table id='tblNinety' cellspacing='0' cellpadding='0' class='table table-bordered table-hover table-taskers'>
+			<thead>
+			<tr><th class="control">Control</th><th class="suspense">Suspense</th><th>Title</th><th class="tasklead">Leads</th></tr>
+			</thead>
+			<tbody>
+			<tr id='ninety'>
+			</tr>
+			</tbody>
+		</table>
+		<table id='tblGtNinety' cellspacing='0' cellpadding='0' class='table table-bordered table-hover table-taskers'>
+			<thead>
+			<tr><th class="control">Control</th><th class="suspense">Suspense</th><th>Title</th><th class="tasklead">Leads</th></tr>
+			</thead>
+			<tbody>
+			<tr id='gtninety'>
+			</tr>
+			</tbody>
+		</table>
+		</div>
+	</b-modal>
+</div>-->
+<head><title>CEWP_Chart_Taskers</title></head>
+<style scoped>
+  .loading {
+    color: #2df20f;
+    font-size: 30px;
+    line-height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .fa-spinner {
+    color: #2df20f;
+    font-size: 30px;
+    line-height: 30px;
+  }
+  .highcharts-container {
+    width: 100%;
+    text-align: center;
+  }
+  .control { width: 80px; }
+  .suspense { width: 90px; white-space: nowrap; }
+  .tasklead { width: 90px; }
+  .tlead { width: 73px; }
+  .poplink { cursor: pointer; text-decoration: none !important; }
+  .modal-mask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: table;
+    transition: opacity .3s ease;
+  }
+  .modal-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .modal-dialog {
+    max-width: 800px;
+    width: 800px;
+  }
+  .modal-body {
+    max-height: 500px;
+    overflow-y: scroll;
+    overflow-x: auto;
+  }
+  .modal-header .close {
+    display: none;
+  }
+  .show .modal .modal-dialog {
+    -webkit-transform: translate(0,0);
+    transform: translate(-1,-1);
+  }
+  #taskertables___BV_modal_footer_ {
+    display: none;
+  }
+</style>

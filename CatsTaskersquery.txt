@@ -1,0 +1,80 @@
+https://hq.tradoc.army.mil/sites/CATS/_vti_bin/listdata.svc/Taskers?$select=Id,ControlNumber,SuspenseDate,TaskerName,TaskDeliverables,TaskerLeads,CompletionStatusValue&$orderby=SuspenseDate&$filter=substringof(%27CG%27,ControlNumber)%20and%20(CompletionStatusValue%20eq%20%27Open%27
+
+CG
+CS
+ES
+EX
+IN
+OP
+
+
+108th TC USAR, 80th TC USAR
+80th TC USAR
+AAC
+AMEDD
+ATC
+AVNCoE
+AWG
+CAC
+CC
+Chaplain
+Chaplain School
+CIMT
+CKO
+CMH
+Command Chaplain
+Cong Act
+CPG
+CSM
+CYBERCoE
+DCG ARNG
+DCG IMT
+DCG IMTCoE
+DCG USAR
+DCG USAR, G-1/4
+ESO
+FCC (AFC)
+FCoE
+G-1/4
+G-2
+G-3/5/7
+G-33 SACO Team
+G-6
+G-8
+G-9
+HHC TRADOC
+Historian
+HQ Commandant
+HRCoE
+IG
+IMCOM
+INCOPD
+INTELCoE
+IRAC
+JAG School
+JFK School
+MCoE
+MEDCoE
+MICC
+MSCoE
+OCG
+OCS
+PAO
+QAO
+REF
+SCoE
+SGS
+SIGCoE
+SJA
+STB Cdr
+TMT TASKER DISTRO
+TRAC
+USAASA
+USAMEDCoE
+USAREC
+USASMA
+USAWC
+
+
+
+<SELECT name=ctl00$m$g_46e6e838_4c32_47fb_af27_f0b9d018d320$DropDownList1 id=ctl00_m_g_46e6e838_4c32_47fb_af27_f0b9d018d320_DropDownList1> <OPTION value="108th TC USAR" selected>108th TC USAR</OPTION> <OPTION value="80th TC USAR">80th TC USAR</OPTION> <OPTION value=AMEDD>AMEDD</OPTION> <OPTION value=ARCIC>ARCIC</OPTION> <OPTION value="ATC JAC">ATC JAC</OPTION> <OPTION value=AVNCoE>AVNCoE</OPTION> <OPTION value=AWG>AWG</OPTION> <OPTION value=CAC>CAC</OPTION> <OPTION value=CC>CC</OPTION> <OPTION value="Chaplain School">Chaplain School</OPTION> <OPTION value=CIMT>CIMT</OPTION> <OPTION value=CKO>CKO</OPTION> <OPTION value="CMF 51">CMF 51</OPTION> <OPTION value="Command Chaplain">Command Chaplain</OPTION> <OPTION value="Cong Act">Cong Act</OPTION> <OPTION value=CPG>CPG</OPTION> <OPTION value=CSM>CSM</OPTION> <OPTION value=CYBERCoE>CYBERCoE</OPTION> <OPTION value="DCG ARNG">DCG ARNG</OPTION> <OPTION value="DCG USAR">DCG USAR</OPTION> <OPTION value=DLIFLC>DLIFLC</OPTION> <OPTION value=ESO>ESO</OPTION> <OPTION value=FCoE>FCoE</OPTION> <OPTION value=G-1/4>G-1/4</OPTION> <OPTION value=G-2>G-2</OPTION> <OPTION value=G-3/5/7>G-3/5/7</OPTION> <OPTION value="G-33 SACO Team">G-33 SACO Team</OPTION> <OPTION value=G-6>G-6</OPTION> <OPTION value=G-8>G-8</OPTION> <OPTION value=G-9>G-9</OPTION> <OPTION value="HHC TRADOC">HHC TRADOC</OPTION> <OPTION value=IG>IG</OPTION> <OPTION value=INTELCoE>INTELCoE</OPTION> <OPTION value=IRAC>IRAC</OPTION> <OPTION value="JAG School">JAG School</OPTION> <OPTION value="JFK School">JFK School</OPTION> <OPTION value=MCoE>MCoE</OPTION> <OPTION value=MICC>MICC</OPTION> <OPTION value=MSCoE>MSCoE</OPTION> <OPTION value=OCG>OCG</OPTION> <OPTION value=OCS>OCS</OPTION> <OPTION value=PAO>PAO</OPTION> <OPTION value=QAO>QAO</OPTION> <OPTION value=REF>REF</OPTION> <OPTION value=SCoE-CASCOM>SCoE-CASCOM</OPTION> <OPTION value=SGS>SGS</OPTION> <OPTION value="SGS SACO Group">SGS SACO Group</OPTION> <OPTION value=SJA>SJA</OPTION> <OPTION value="STB Cdr">STB Cdr</OPTION> <OPTION value=TRAC>TRAC</OPTION> <OPTION value=USAREC>USAREC</OPTION> <OPTION value=USASMA>USASMA</OPTION> <OPTION value=USAWC>USAWC</OPTION> <OPTION value="z Developer Assist">z Developer Assist</OPTION> <OPTION value="z Developer Info">z Developer Info</OPTION> <OPTION value="z Developer Lead">z Developer Lead</OPTION></SELECT>
